@@ -84,6 +84,23 @@
         #add-task-btn:active {
             background-color: #21618c;
         }
+
+        .tasks-container {
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tasks-container h2 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        #tasks-list {
+            min-height: 100px;
+        }
     </style>
 </head>
 <body>
@@ -111,6 +128,107 @@
                 </button>
             </form>
         </section>
+
+        <section id="tasks-display" class="tasks-container">
+            <h2>Tasks</h2>
+            <div id="tasks-list"></div>
+        </section>
     </div>
+
+    <script>
+        // ==========================================
+        // TASK DATA STRUCTURE
+        // ==========================================
+        // Task object structure:
+        // {
+        //   id: string           - Unique identifier (timestamp + random)
+        //   title: string        - Task description/title
+        //   createdAt: number    - Unix timestamp of creation
+        //   completed: boolean   - Task completion status
+        // }
+
+        // Tasks array to store all tasks
+        const tasks = [];
+
+        // ==========================================
+        // ID GENERATION MECHANISM
+        // ==========================================
+        /**
+         * Generates a unique ID for tasks
+         * Uses timestamp + random component for uniqueness
+         * @returns {string} Unique task identifier
+         */
+        function generateTaskId() {
+            const timestamp = Date.now();
+            const random = Math.random().toString(36).substring(2, 8);
+            return `task-${timestamp}-${random}`;
+        }
+
+        // ==========================================
+        // HELPER FUNCTIONS
+        // ==========================================
+        /**
+         * Creates a new task object with proper structure
+         * @param {string} title - The task title/description
+         * @returns {Object} New task object with id, title, createdAt, completed
+         */
+        function createTask(title) {
+            return {
+                id: generateTaskId(),
+                title: title,
+                createdAt: Date.now(),
+                completed: false
+            };
+        }
+
+        /**
+         * Adds a task to the tasks array
+         * @param {string} title - The task title
+         * @returns {Object} The created task
+         */
+        function addTask(title) {
+            const task = createTask(title);
+            tasks.push(task);
+            console.log('Task added:', task);
+            return task;
+        }
+
+        /**
+         * Logs the current state of all tasks
+         */
+        function logTasksState() {
+            console.log('=== TASKS ARRAY STATE ===');
+            console.log(`Total tasks: ${tasks.length}`);
+            tasks.forEach((task, index) => {
+                console.log(`Task ${index + 1}:`, {
+                    id: task.id,
+                    title: task.title,
+                    createdAt: new Date(task.createdAt).toISOString(),
+                    completed: task.completed
+                });
+            });
+            console.log('========================');
+        }
+
+        // ==========================================
+        // INITIAL DEMONSTRATION
+        // ==========================================
+        // Log to verify structure is working
+        console.log('Task Data Structure Initialized');
+        console.log('Task object structure:', createTask('Sample Task'));
+
+        // Display tasks array in console
+        console.log('Tasks array:', tasks);
+        console.log('Number of tasks:', tasks.length);
+
+        // Make functions available globally for testing
+        window.taskManager = {
+            tasks,
+            generateTaskId,
+            createTask,
+            addTask,
+            logTasksState
+        };
+    </script>
 </body>
 </html>
