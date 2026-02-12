@@ -101,6 +101,43 @@
         #tasks-list {
             min-height: 100px;
         }
+
+        /* Filter Tabs Styles */
+        .filter-tabs-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            background-color: transparent;
+            color: #7f8c8d;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        .filter-tab.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .filter-tab:focus {
+            outline: 2px solid #3498db;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
@@ -131,6 +168,44 @@
 
         <section id="tasks-display" class="tasks-container">
             <h2>Tasks</h2>
+
+            <!-- Filter Tabs Container -->
+            <div id="filter-tabs-container" class="filter-tabs-container" role="tablist" aria-label="Task filters">
+                <button
+                    type="button"
+                    id="filter-all"
+                    class="filter-tab active"
+                    data-filter="all"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="tasks-list"
+                >
+                    All
+                </button>
+                <button
+                    type="button"
+                    id="filter-active"
+                    class="filter-tab"
+                    data-filter="active"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="tasks-list"
+                >
+                    Active
+                </button>
+                <button
+                    type="button"
+                    id="filter-completed"
+                    class="filter-tab"
+                    data-filter="completed"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="tasks-list"
+                >
+                    Completed
+                </button>
+            </div>
+
             <div id="tasks-list"></div>
         </section>
     </div>
