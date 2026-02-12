@@ -36,6 +36,54 @@
             font-size: 28px;
             font-weight: 600;
         }
+
+        .task-input-container {
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .task-input-form {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        #task-input {
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        #task-input:focus {
+            border-color: #3498db;
+        }
+
+        #add-task-btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #add-task-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #add-task-btn:active {
+            background-color: #21618c;
+        }
     </style>
 </head>
 <body>
@@ -43,6 +91,26 @@
         <header class="app-header">
             <h1>Simple Task Manager</h1>
         </header>
+
+        <section class="task-input-container">
+            <form id="task-form" class="task-input-form">
+                <input
+                    type="text"
+                    id="task-input"
+                    name="task"
+                    placeholder="Enter a new task..."
+                    aria-label="Task input"
+                    required
+                />
+                <button
+                    type="submit"
+                    id="add-task-btn"
+                    aria-label="Add task"
+                >
+                    Add
+                </button>
+            </form>
+        </section>
     </div>
 </body>
 </html>
