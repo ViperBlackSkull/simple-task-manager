@@ -1,0 +1,398 @@
+{
+  "repo": "ViperBlackSkull/simple-task-manager",
+  "issues": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43],
+  "current_index": 0,
+  "task_graph": {
+    "tasks": [
+      {
+        "id": "task-1",
+        "github_issue_number": 1,
+        "title": "Create base HTML document structure",
+        "feature": "Setup",
+        "dependencies": [],
+        "status": "todo"
+      },
+      {
+        "id": "task-2",
+        "github_issue_number": 2,
+        "title": "Add main container and header HTML structure",
+        "feature": "Setup",
+        "dependencies": ["task-1"],
+        "status": "todo"
+      },
+      {
+        "id": "task-4",
+        "github_issue_number": 3,
+        "title": "Create HTML structure for task input form",
+        "feature": "Task Creation",
+        "dependencies": ["task-2"],
+        "status": "todo"
+      },
+      {
+        "id": "task-6",
+        "github_issue_number": 4,
+        "title": "Define task data structure in JavaScript",
+        "feature": "Task Creation",
+        "dependencies": ["task-1"],
+        "status": "todo"
+      },
+      {
+        "id": "task-12",
+        "github_issue_number": 5,
+        "title": "Create HTML structure for task list container",
+        "feature": "Task Display",
+        "dependencies": ["task-2"],
+        "status": "todo"
+      },
+      {
+        "id": "task-27",
+        "github_issue_number": 6,
+        "title": "Create HTML structure for filter tabs",
+        "feature": "Task Filtering",
+        "dependencies": ["task-2"],
+        "status": "todo"
+      },
+      {
+        "id": "task-3",
+        "github_issue_number": 7,
+        "title": "Create base CSS styles for layout and theme",
+        "feature": "Setup",
+        "dependencies": ["task-2"],
+        "status": "todo"
+      },
+      {
+        "id": "task-5",
+        "github_issue_number": 8,
+        "title": "Add CSS styling for task input form",
+        "feature": "Task Creation",
+        "dependencies": ["task-3", "task-4"],
+        "status": "todo"
+      },
+      {
+        "id": "task-7",
+        "github_issue_number": 9,
+        "title": "Implement input validation for task creation",
+        "feature": "Task Creation",
+        "dependencies": ["task-4", "task-6"],
+        "status": "todo"
+      },
+      {
+        "id": "task-14",
+        "github_issue_number": 10,
+        "title": "Create HTML template for individual task item",
+        "feature": "Task Display",
+        "dependencies": ["task-12"],
+        "status": "todo"
+      },
+      {
+        "id": "task-13",
+        "github_issue_number": 11,
+        "title": "Add CSS styling for task list container",
+        "feature": "Task Display",
+        "dependencies": ["task-3", "task-12"],
+        "status": "todo"
+      },
+      {
+        "id": "task-8",
+        "github_issue_number": 12,
+        "title": "Implement Enter key event listener for task creation",
+        "feature": "Task Creation",
+        "dependencies": ["task-4", "task-6", "task-7"],
+        "status": "todo"
+      },
+      {
+        "id": "task-9",
+        "github_issue_number": 13,
+        "title": "Implement click event listener for Add button",
+        "feature": "Task Creation",
+        "dependencies": ["task-4", "task-6", "task-7"],
+        "status": "todo"
+      },
+      {
+        "id": "task-10",
+        "github_issue_number": 14,
+        "title": "Implement task creation logic",
+        "feature": "Task Creation",
+        "dependencies": ["task-6", "task-7"],
+        "status": "todo"
+      },
+      {
+        "id": "task-28",
+        "github_issue_number": 15,
+        "title": "Add CSS styling for filter tabs",
+        "feature": "Task Filtering",
+        "dependencies": ["task-3", "task-27"],
+        "status": "todo"
+      },
+      {
+        "id": "task-29",
+        "github_issue_number": 16,
+        "title": "Implement filter state management",
+        "feature": "Task Filtering",
+        "dependencies": ["task-6", "task-27"],
+        "status": "todo"
+      },
+      {
+        "id": "task-15",
+        "github_issue_number": 17,
+        "title": "Add CSS styling for task items",
+        "feature": "Task Display",
+        "dependencies": ["task-3", "task-13", "task-14"],
+        "status": "todo"
+      },
+      {
+        "id": "task-11",
+        "github_issue_number": 18,
+        "title": "Clear input field after task creation",
+        "feature": "Task Creation",
+        "dependencies": ["task-8", "task-9"],
+        "status": "todo"
+      },
+      {
+        "id": "task-16",
+        "github_issue_number": 19,
+        "title": "Implement render task list function",
+        "feature": "Task Display",
+        "dependencies": ["task-10", "task-14"],
+        "status": "todo"
+      },
+      {
+        "id": "task-17",
+        "github_issue_number": 20,
+        "title": "Add strikethrough styling for completed tasks",
+        "feature": "Task Display",
+        "dependencies": ["task-15"],
+        "status": "todo"
+      },
+      {
+        "id": "task-18",
+        "github_issue_number": 21,
+        "title": "Implement empty state message display",
+        "feature": "Task Display",
+        "dependencies": ["task-12", "task-16"],
+        "status": "todo"
+      },
+      {
+        "id": "task-19",
+        "github_issue_number": 22,
+        "title": "Format and display task creation date",
+        "feature": "Task Display",
+        "dependencies": ["task-14", "task-16"],
+        "status": "todo"
+      },
+      {
+        "id": "task-20",
+        "github_issue_number": 23,
+        "title": "Implement checkbox click handler for task completion",
+        "feature": "Task Completion",
+        "dependencies": ["task-16"],
+        "status": "todo"
+      },
+      {
+        "id": "task-30",
+        "github_issue_number": 24,
+        "title": "Implement filter tab click handlers",
+        "feature": "Task Filtering",
+        "dependencies": ["task-16", "task-27", "task-29"],
+        "status": "todo"
+      },
+      {
+        "id": "task-31",
+        "github_issue_number": 25,
+        "title": "Add task count display for each filter",
+        "feature": "Task Filtering",
+        "dependencies": ["task-27", "task-29"],
+        "status": "todo"
+      },
+      {
+        "id": "task-21",
+        "github_issue_number": 26,
+        "title": "Implement task reordering on completion",
+        "feature": "Task Completion",
+        "dependencies": ["task-16", "task-20"],
+        "status": "todo"
+      },
+      {
+        "id": "task-22",
+        "github_issue_number": 27,
+        "title": "Implement delete button display on hover",
+        "feature": "Task Deletion",
+        "dependencies": ["task-15"],
+        "status": "todo"
+      },
+      {
+        "id": "task-32",
+        "github_issue_number": 28,
+        "title": "Implement localStorage save function",
+        "feature": "Data Persistence",
+        "dependencies": ["task-6"],
+        "status": "todo"
+      },
+      {
+        "id": "task-23",
+        "github_issue_number": 29,
+        "title": "Implement delete single task functionality",
+        "feature": "Task Deletion",
+        "dependencies": ["task-16", "task-22"],
+        "status": "todo"
+      },
+      {
+        "id": "task-24",
+        "github_issue_number": 30,
+        "title": "Add confirmation dialog before task deletion",
+        "feature": "Task Deletion",
+        "dependencies": ["task-23"],
+        "status": "todo"
+      },
+      {
+        "id": "task-25",
+        "github_issue_number": 31,
+        "title": "Add smooth animation for task removal",
+        "feature": "Task Deletion",
+        "dependencies": ["task-23"],
+        "status": "todo"
+      },
+      {
+        "id": "task-26",
+        "github_issue_number": 32,
+        "title": "Add delete all completed tasks button",
+        "feature": "Task Deletion",
+        "dependencies": ["task-12", "task-23"],
+        "status": "todo"
+      },
+      {
+        "id": "task-33",
+        "github_issue_number": 33,
+        "title": "Implement localStorage load function",
+        "feature": "Data Persistence",
+        "dependencies": ["task-6", "task-32"],
+        "status": "todo"
+      },
+      {
+        "id": "task-34",
+        "github_issue_number": 34,
+        "title": "Integrate persistence with all data-modifying operations",
+        "feature": "Data Persistence",
+        "dependencies": ["task-10", "task-20", "task-23", "task-26", "task-32"],
+        "status": "todo"
+      },
+      {
+        "id": "task-35",
+        "github_issue_number": 35,
+        "title": "Implement page initialization with persisted data",
+        "feature": "Data Persistence",
+        "dependencies": ["task-16", "task-33"],
+        "status": "todo"
+      },
+      {
+        "id": "task-36",
+        "github_issue_number": 36,
+        "title": "Add responsive CSS for mobile devices",
+        "feature": "Setup",
+        "dependencies": ["task-3"],
+        "status": "todo"
+      },
+      {
+        "id": "task-37",
+        "github_issue_number": 37,
+        "title": "Test complete task creation flow end-to-end",
+        "feature": "Task Creation",
+        "dependencies": ["task-4", "task-5", "task-6", "task-7", "task-8", "task-9", "task-10", "task-11"],
+        "status": "todo"
+      },
+      {
+        "id": "task-38",
+        "github_issue_number": 38,
+        "title": "Test complete task display functionality",
+        "feature": "Task Display",
+        "dependencies": ["task-12", "task-13", "task-14", "task-15", "task-16", "task-17", "task-18", "task-19"],
+        "status": "todo"
+      },
+      {
+        "id": "task-39",
+        "github_issue_number": 39,
+        "title": "Test complete task completion flow",
+        "feature": "Task Completion",
+        "dependencies": ["task-20", "task-21"],
+        "status": "todo"
+      },
+      {
+        "id": "task-40",
+        "github_issue_number": 40,
+        "title": "Test complete task deletion flow",
+        "feature": "Task Deletion",
+        "dependencies": ["task-22", "task-23", "task-24", "task-25", "task-26"],
+        "status": "todo"
+      },
+      {
+        "id": "task-41",
+        "github_issue_number": 41,
+        "title": "Test complete task filtering flow",
+        "feature": "Task Filtering",
+        "dependencies": ["task-27", "task-28", "task-29", "task-30", "task-31"],
+        "status": "todo"
+      },
+      {
+        "id": "task-42",
+        "github_issue_number": 42,
+        "title": "Test complete data persistence flow",
+        "feature": "Data Persistence",
+        "dependencies": ["task-32", "task-33", "task-34", "task-35"],
+        "status": "todo"
+      },
+      {
+        "id": "task-43",
+        "github_issue_number": 43,
+        "title": "Test responsive design across devices",
+        "feature": "Setup",
+        "dependencies": ["task-36", "task-37", "task-38", "task-39", "task-40", "task-41", "task-42"],
+        "status": "todo"
+      }
+    ],
+    "execution_order": [
+      "task-1",
+      "task-2",
+      "task-4",
+      "task-6",
+      "task-12",
+      "task-27",
+      "task-3",
+      "task-5",
+      "task-7",
+      "task-14",
+      "task-13",
+      "task-8",
+      "task-9",
+      "task-10",
+      "task-28",
+      "task-29",
+      "task-15",
+      "task-11",
+      "task-16",
+      "task-17",
+      "task-18",
+      "task-19",
+      "task-20",
+      "task-30",
+      "task-31",
+      "task-21",
+      "task-22",
+      "task-32",
+      "task-23",
+      "task-24",
+      "task-25",
+      "task-26",
+      "task-33",
+      "task-34",
+      "task-35",
+      "task-36",
+      "task-37",
+      "task-38",
+      "task-39",
+      "task-40",
+      "task-41",
+      "task-42",
+      "task-43"
+    ]
+  }
+}

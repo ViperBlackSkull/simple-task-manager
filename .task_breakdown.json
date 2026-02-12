@@ -1,0 +1,802 @@
+{
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Create base HTML document structure",
+      "feature": "Setup",
+      "dependencies": [],
+      "description": "Create the index.html file with DOCTYPE, html, head, and body elements",
+      "acceptance_criteria": [
+        "Valid HTML5 DOCTYPE declaration",
+        "Head section with meta charset and viewport",
+        "Title element with app name",
+        "Body element exists"
+      ],
+      "test_steps": [
+        "Open index.html in browser",
+        "Verify no console errors",
+        "Check page source for proper structure"
+      ]
+    },
+    {
+      "id": "task-2",
+      "title": "Add main container and header HTML structure",
+      "feature": "Setup",
+      "dependencies": ["task-1"],
+      "description": "Add the main container div, header with app title",
+      "acceptance_criteria": [
+        "Main container div with appropriate ID",
+        "Header element with app title",
+        "Semantic HTML structure"
+      ],
+      "test_steps": [
+        "Open index.html in browser",
+        "Verify header is visible",
+        "Check element structure in dev tools"
+      ]
+    },
+    {
+      "id": "task-3",
+      "title": "Create base CSS styles for layout and theme",
+      "feature": "Setup",
+      "dependencies": ["task-2"],
+      "description": "Add CSS reset, body styles, and base theme colors including blue accent",
+      "acceptance_criteria": [
+        "CSS reset applied",
+        "Body has proper font and background",
+        "Blue accent color (#3b82f6) defined",
+        "Base container styling applied"
+      ],
+      "test_steps": [
+        "Open index.html in browser",
+        "Verify background and font styling",
+        "Check that CSS is applied in dev tools"
+      ]
+    },
+    {
+      "id": "task-4",
+      "title": "Create HTML structure for task input form",
+      "feature": "Task Creation",
+      "dependencies": ["task-2"],
+      "description": "Add input field and Add button HTML elements",
+      "acceptance_criteria": [
+        "Input element with type='text' and placeholder",
+        "Button element with 'Add' text",
+        "Elements wrapped in container div"
+      ],
+      "test_steps": [
+        "Open index.html in browser",
+        "Verify input field is visible",
+        "Verify button is visible"
+      ]
+    },
+    {
+      "id": "task-5",
+      "title": "Add CSS styling for task input form",
+      "feature": "Task Creation",
+      "dependencies": ["task-3", "task-4"],
+      "description": "Style the input field and button with card styling and blue accent",
+      "acceptance_criteria": [
+        "Input field has padding, border, and rounded corners",
+        "Button has blue background (#3b82f6) and white text",
+        "Form elements are properly aligned horizontally"
+      ],
+      "test_steps": [
+        "Open index.html in browser",
+        "Verify input and button styling",
+        "Check responsive behavior"
+      ]
+    },
+    {
+      "id": "task-6",
+      "title": "Define task data structure in JavaScript",
+      "feature": "Task Creation",
+      "dependencies": ["task-1"],
+      "description": "Create task object structure with id, title, createdAt, and completed fields",
+      "acceptance_criteria": [
+        "Task object structure defined with all required fields",
+        "Tasks array initialized to store all tasks",
+        "ID generation mechanism defined"
+      ],
+      "test_steps": [
+        "Check JavaScript for tasks array",
+        "Verify task object structure in console"
+      ]
+    },
+    {
+      "id": "task-7",
+      "title": "Implement input validation for task creation",
+      "feature": "Task Creation",
+      "dependencies": ["task-4", "task-6"],
+      "description": "Validate that input is not empty or whitespace before creating task",
+      "acceptance_criteria": [
+        "Empty input is rejected",
+        "Whitespace-only input is rejected",
+        "Trim is applied to input value"
+      ],
+      "test_steps": [
+        "Try to add empty task",
+        "Try to add whitespace-only task",
+        "Verify neither creates a task"
+      ]
+    },
+    {
+      "id": "task-8",
+      "title": "Implement Enter key event listener for task creation",
+      "feature": "Task Creation",
+      "dependencies": ["task-4", "task-6", "task-7"],
+      "description": "Add keydown event listener to input field to detect Enter key press",
+      "acceptance_criteria": [
+        "Event listener attached to input field",
+        "Pressing Enter triggers task creation",
+        "Event does not fire for other keys"
+      ],
+      "test_steps": [
+        "Type in input and press Enter",
+        "Verify task is created",
+        "Press other keys and verify no action"
+      ]
+    },
+    {
+      "id": "task-9",
+      "title": "Implement click event listener for Add button",
+      "feature": "Task Creation",
+      "dependencies": ["task-4", "task-6", "task-7"],
+      "description": "Add click event listener to Add button for task creation",
+      "acceptance_criteria": [
+        "Click listener attached to button",
+        "Clicking button triggers task creation"
+      ],
+      "test_steps": [
+        "Click Add button with valid input",
+        "Verify task is created"
+      ]
+    },
+    {
+      "id": "task-10",
+      "title": "Implement task creation logic",
+      "feature": "Task Creation",
+      "dependencies": ["task-6", "task-7"],
+      "description": "Create new task object and add it to tasks array at the beginning",
+      "acceptance_criteria": [
+        "New task object created with unique ID",
+        "Task added to beginning of tasks array",
+        "Timestamp recorded for createdAt"
+      ],
+      "test_steps": [
+        "Add a valid task",
+        "Check tasks array contains new task",
+        "Verify unique ID and timestamp"
+      ]
+    },
+    {
+      "id": "task-11",
+      "title": "Clear input field after task creation",
+      "feature": "Task Creation",
+      "dependencies": ["task-8", "task-9"],
+      "description": "Reset input field to empty string after successful task creation",
+      "acceptance_criteria": [
+        "Input field cleared after task added",
+        "Focus returned to input field"
+      ],
+      "test_steps": [
+        "Add a task",
+        "Verify input is empty",
+        "Verify input has focus"
+      ]
+    },
+    {
+      "id": "task-12",
+      "title": "Create HTML structure for task list container",
+      "feature": "Task Display",
+      "dependencies": ["task-2"],
+      "description": "Add container div for the task list with appropriate ID",
+      "acceptance_criteria": [
+        "Task list container div exists",
+        "Container has appropriate ID/class for styling"
+      ],
+      "test_steps": [
+        "Check HTML for task list container",
+        "Verify container is in DOM"
+      ]
+    },
+    {
+      "id": "task-13",
+      "title": "Add CSS styling for task list container",
+      "feature": "Task Display",
+      "dependencies": ["task-3", "task-12"],
+      "description": "Style the task list container with card styling and spacing",
+      "acceptance_criteria": [
+        "List container has proper spacing",
+        "Card shadow styling applied",
+        "Proper max-width and margins"
+      ],
+      "test_steps": [
+        "Open page in browser",
+        "Verify list container styling",
+        "Check responsive behavior"
+      ]
+    },
+    {
+      "id": "task-14",
+      "title": "Create HTML template for individual task item",
+      "feature": "Task Display",
+      "dependencies": ["task-12"],
+      "description": "Define task item structure with checkbox, title, date, and delete button",
+      "acceptance_criteria": [
+        "Task item structure defined",
+        "Checkbox element present",
+        "Task title span/div present",
+        "Date display element present",
+        "Delete button present"
+      ],
+      "test_steps": [
+        "Check task item template in code",
+        "Verify all required elements present"
+      ]
+    },
+    {
+      "id": "task-15",
+      "title": "Add CSS styling for task items",
+      "feature": "Task Display",
+      "dependencies": ["task-3", "task-13", "task-14"],
+      "description": "Style task items with proper layout, spacing, and hover effects",
+      "acceptance_criteria": [
+        "Task items have proper padding and layout",
+        "Checkbox and text aligned properly",
+        "Delete button styling present",
+        "Hover state styling applied"
+      ],
+      "test_steps": [
+        "View task items in browser",
+        "Check alignment and spacing",
+        "Verify hover effects"
+      ]
+    },
+    {
+      "id": "task-16",
+      "title": "Implement render task list function",
+      "feature": "Task Display",
+      "dependencies": ["task-10", "task-14"],
+      "description": "Create JavaScript function to render all tasks in the DOM",
+      "acceptance_criteria": [
+        "Function clears and re-renders task list",
+        "Each task rendered with correct data",
+        "Tasks displayed in correct order"
+      ],
+      "test_steps": [
+        "Add multiple tasks",
+        "Verify all tasks appear in list",
+        "Check order is correct"
+      ]
+    },
+    {
+      "id": "task-17",
+      "title": "Add strikethrough styling for completed tasks",
+      "feature": "Task Display",
+      "dependencies": ["task-15"],
+      "description": "Add CSS class for completed tasks with strikethrough and muted color",
+      "acceptance_criteria": [
+        "Completed class applies strikethrough",
+        "Text color muted for completed tasks",
+        "Visual distinction clear"
+      ],
+      "test_steps": [
+        "Complete a task",
+        "Verify strikethrough styling applied",
+        "Check color is muted"
+      ]
+    },
+    {
+      "id": "task-18",
+      "title": "Implement empty state message display",
+      "feature": "Task Display",
+      "dependencies": ["task-12", "task-16"],
+      "description": "Show message when no tasks exist in the list",
+      "acceptance_criteria": [
+        "Empty state message shown when no tasks",
+        "Message hidden when tasks exist",
+        "Appropriate styling for message"
+      ],
+      "test_steps": [
+        "Load app with no tasks",
+        "Verify empty state message shows",
+        "Add a task and verify message hides"
+      ]
+    },
+    {
+      "id": "task-19",
+      "title": "Format and display task creation date",
+      "feature": "Task Display",
+      "dependencies": ["task-14", "task-16"],
+      "description": "Format the createdAt timestamp and display in task item",
+      "acceptance_criteria": [
+        "Date formatted in readable format",
+        "Date displayed in each task item",
+        "Format consistent across all tasks"
+      ],
+      "test_steps": [
+        "Add tasks at different times",
+        "Verify dates display correctly",
+        "Check format is readable"
+      ]
+    },
+    {
+      "id": "task-20",
+      "title": "Implement checkbox click handler for task completion",
+      "feature": "Task Completion",
+      "dependencies": ["task-16"],
+      "description": "Add click event handler to checkboxes to toggle completion status",
+      "acceptance_criteria": [
+        "Click handler attached to checkboxes",
+        "Toggles completed status in data",
+        "Re-renders task list after toggle"
+      ],
+      "test_steps": [
+        "Click checkbox on a task",
+        "Verify completion status toggled",
+        "Verify list re-renders"
+      ]
+    },
+    {
+      "id": "task-21",
+      "title": "Implement task reordering on completion",
+      "feature": "Task Completion",
+      "dependencies": ["task-16", "task-20"],
+      "description": "Move completed tasks to bottom of list, active tasks to top",
+      "acceptance_criteria": [
+        "Completing task moves it to bottom",
+        "Uncompleting task moves it to top",
+        "Order maintained within each group"
+      ],
+      "test_steps": [
+        "Complete a task, verify it moves to bottom",
+        "Uncomplete a task, verify it moves to top",
+        "Check order within groups"
+      ]
+    },
+    {
+      "id": "task-22",
+      "title": "Implement delete button display on hover",
+      "feature": "Task Deletion",
+      "dependencies": ["task-15"],
+      "description": "Show delete button only when hovering over task item",
+      "acceptance_criteria": [
+        "Delete button hidden by default",
+        "Delete button appears on hover",
+        "Smooth transition for show/hide"
+      ],
+      "test_steps": [
+        "View task list",
+        "Hover over task item",
+        "Verify delete button appears"
+      ]
+    },
+    {
+      "id": "task-23",
+      "title": "Implement delete single task functionality",
+      "feature": "Task Deletion",
+      "dependencies": ["task-16", "task-22"],
+      "description": "Add click handler to delete button to remove task from array and DOM",
+      "acceptance_criteria": [
+        "Click handler attached to delete button",
+        "Task removed from tasks array",
+        "Task list re-renders after deletion"
+      ],
+      "test_steps": [
+        "Click delete button on a task",
+        "Verify task removed from array",
+        "Verify task removed from display"
+      ]
+    },
+    {
+      "id": "task-24",
+      "title": "Add confirmation dialog before task deletion",
+      "feature": "Task Deletion",
+      "dependencies": ["task-23"],
+      "description": "Show browser confirm dialog before deleting a task",
+      "acceptance_criteria": [
+        "Confirm dialog shown before delete",
+        "Delete cancelled if user clicks cancel",
+        "Delete proceeds if user confirms"
+      ],
+      "test_steps": [
+        "Click delete on a task",
+        "Verify confirm dialog appears",
+        "Test both confirm and cancel"
+      ]
+    },
+    {
+      "id": "task-25",
+      "title": "Add smooth animation for task removal",
+      "feature": "Task Deletion",
+      "dependencies": ["task-23"],
+      "description": "Implement CSS transition/animation when task is removed from list",
+      "acceptance_criteria": [
+        "Fade out animation on delete",
+        "Smooth height transition",
+        "Animation completes before DOM removal"
+      ],
+      "test_steps": [
+        "Delete a task",
+        "Verify smooth fade animation",
+        "Verify element removed after animation"
+      ]
+    },
+    {
+      "id": "task-26",
+      "title": "Add delete all completed tasks button",
+      "feature": "Task Deletion",
+      "dependencies": ["task-12", "task-23"],
+      "description": "Add button to delete all completed tasks at once",
+      "acceptance_criteria": [
+        "Button exists in UI",
+        "Button only visible when completed tasks exist",
+        "Shows confirmation before bulk delete"
+      ],
+      "test_steps": [
+        "Complete some tasks",
+        "Verify button appears",
+        "Click and verify all completed tasks removed"
+      ]
+    },
+    {
+      "id": "task-27",
+      "title": "Create HTML structure for filter tabs",
+      "feature": "Task Filtering",
+      "dependencies": ["task-2"],
+      "description": "Add filter tab buttons for All, Active, and Completed",
+      "acceptance_criteria": [
+        "Three filter buttons exist",
+        "Buttons labeled correctly",
+        "Buttons wrapped in container"
+      ],
+      "test_steps": [
+        "View page in browser",
+        "Verify three filter buttons visible",
+        "Check button labels"
+      ]
+    },
+    {
+      "id": "task-28",
+      "title": "Add CSS styling for filter tabs",
+      "feature": "Task Filtering",
+      "dependencies": ["task-3", "task-27"],
+      "description": "Style filter tabs with active state highlighting",
+      "acceptance_criteria": [
+        "Tabs styled as buttons",
+        "Active tab has blue accent highlight",
+        "Hover state for tabs"
+      ],
+      "test_steps": [
+        "View filter tabs",
+        "Verify default active state on 'All'",
+        "Click tabs and verify highlight changes"
+      ]
+    },
+    {
+      "id": "task-29",
+      "title": "Implement filter state management",
+      "feature": "Task Filtering",
+      "dependencies": ["task-6", "task-27"],
+      "description": "Track current filter state and filter tasks array based on selection",
+      "acceptance_criteria": [
+        "Current filter state variable exists",
+        "Filter function returns filtered task list",
+        "All/Active/Completed filters work correctly"
+      ],
+      "test_steps": [
+        "Select each filter",
+        "Verify correct tasks shown",
+        "Verify state persists during session"
+      ]
+    },
+    {
+      "id": "task-30",
+      "title": "Implement filter tab click handlers",
+      "feature": "Task Filtering",
+      "dependencies": ["task-16", "task-27", "task-29"],
+      "description": "Add click handlers to filter tabs to update filter and re-render list",
+      "acceptance_criteria": [
+        "Click handlers attached to all tabs",
+        "Filter state updated on click",
+        "Task list re-renders with filtered tasks",
+        "Active tab styling updated"
+      ],
+      "test_steps": [
+        "Click each filter tab",
+        "Verify task list updates",
+        "Verify active tab styling changes"
+      ]
+    },
+    {
+      "id": "task-31",
+      "title": "Add task count display for each filter",
+      "feature": "Task Filtering",
+      "dependencies": ["task-27", "task-29"],
+      "description": "Display count of tasks in each category (All/Active/Completed)",
+      "acceptance_criteria": [
+        "Count shown for each filter tab",
+        "Counts update when tasks change",
+        "Counts accurate for each category"
+      ],
+      "test_steps": [
+        "Add and complete tasks",
+        "Verify counts update correctly",
+        "Check counts match actual task counts"
+      ]
+    },
+    {
+      "id": "task-32",
+      "title": "Implement localStorage save function",
+      "feature": "Data Persistence",
+      "dependencies": ["task-6"],
+      "description": "Create function to save tasks array to localStorage",
+      "acceptance_criteria": [
+        "Function serializes and saves to localStorage",
+        "Key name is consistent",
+        "Called after any data change"
+      ],
+      "test_steps": [
+        "Add a task",
+        "Check localStorage in dev tools",
+        "Verify data is saved"
+      ]
+    },
+    {
+      "id": "task-33",
+      "title": "Implement localStorage load function",
+      "feature": "Data Persistence",
+      "dependencies": ["task-6", "task-32"],
+      "description": "Create function to load tasks from localStorage on page load",
+      "acceptance_criteria": [
+        "Function loads and parses localStorage data",
+        "Handles empty/corrupt data gracefully",
+        "Called on page initialization"
+      ],
+      "test_steps": [
+        "Refresh page with existing tasks",
+        "Verify tasks are restored",
+        "Test with empty localStorage"
+      ]
+    },
+    {
+      "id": "task-34",
+      "title": "Integrate persistence with all data-modifying operations",
+      "feature": "Data Persistence",
+      "dependencies": ["task-10", "task-20", "task-23", "task-26", "task-32"],
+      "description": "Ensure save function called after add, complete, and delete operations",
+      "acceptance_criteria": [
+        "Save called after task creation",
+        "Save called after task completion toggle",
+        "Save called after task deletion"
+      ],
+      "test_steps": [
+        "Add a task and refresh",
+        "Complete a task and refresh",
+        "Delete a task and refresh",
+        "Verify changes persist in all cases"
+      ]
+    },
+    {
+      "id": "task-35",
+      "title": "Implement page initialization with persisted data",
+      "feature": "Data Persistence",
+      "dependencies": ["task-16", "task-33"],
+      "description": "Load persisted tasks and render them when page loads",
+      "acceptance_criteria": [
+        "Tasks loaded from localStorage on init",
+        "Task list rendered with loaded data",
+        "Handles first-time visit (no data)"
+      ],
+      "test_steps": [
+        "Add tasks, close browser, reopen",
+        "Verify tasks are displayed",
+        "Test with fresh browser (no data)"
+      ]
+    },
+    {
+      "id": "task-36",
+      "title": "Add responsive CSS for mobile devices",
+      "feature": "Setup",
+      "dependencies": ["task-3"],
+      "description": "Add media queries for mobile-friendly layout",
+      "acceptance_criteria": [
+        "Layout adjusts on smaller screens",
+        "Input and button stack vertically on mobile",
+        "Touch-friendly tap targets"
+      ],
+      "test_steps": [
+        "Resize browser to mobile width",
+        "Check layout adjusts properly",
+        "Verify buttons are easy to tap"
+      ]
+    },
+    {
+      "id": "task-37",
+      "title": "Test complete task creation flow end-to-end",
+      "feature": "Task Creation",
+      "dependencies": ["task-4", "task-5", "task-6", "task-7", "task-8", "task-9", "task-10", "task-11"],
+      "description": "Test the entire task creation feature including all user interactions",
+      "acceptance_criteria": [
+        "Can add task via Enter key",
+        "Can add task via button click",
+        "Empty tasks are rejected",
+        "Input clears after adding",
+        "Task appears at top of list"
+      ],
+      "test_steps": [
+        "Test adding task with Enter key",
+        "Test adding task with button click",
+        "Test empty input rejection",
+        "Test whitespace input rejection",
+        "Verify task order in list"
+      ]
+    },
+    {
+      "id": "task-38",
+      "title": "Test complete task display functionality",
+      "feature": "Task Display",
+      "dependencies": ["task-12", "task-13", "task-14", "task-15", "task-16", "task-17", "task-18", "task-19"],
+      "description": "Test task display including rendering, dates, and empty state",
+      "acceptance_criteria": [
+        "Tasks render correctly with all data",
+        "Dates display in correct format",
+        "Empty state shows when no tasks",
+        "Completed tasks visually distinct"
+      ],
+      "test_steps": [
+        "Add multiple tasks and verify display",
+        "Check date formatting",
+        "Delete all tasks and verify empty state",
+        "Complete tasks and verify styling"
+      ]
+    },
+    {
+      "id": "task-39",
+      "title": "Test complete task completion flow",
+      "feature": "Task Completion",
+      "dependencies": ["task-20", "task-21"],
+      "description": "Test task completion toggle and reordering",
+      "acceptance_criteria": [
+        "Checkbox toggles completion status",
+        "Completed tasks move to bottom",
+        "Uncompleted tasks move to top",
+        "Can reactivate completed tasks"
+      ],
+      "test_steps": [
+        "Complete a task and verify move to bottom",
+        "Uncomplete a task and verify move to top",
+        "Test multiple completions",
+        "Verify reactivation works"
+      ]
+    },
+    {
+      "id": "task-40",
+      "title": "Test complete task deletion flow",
+      "feature": "Task Deletion",
+      "dependencies": ["task-22", "task-23", "task-24", "task-25", "task-26"],
+      "description": "Test task deletion including single delete, confirmation, and bulk delete",
+      "acceptance_criteria": [
+        "Delete button shows on hover",
+        "Confirmation dialog appears",
+        "Single task deletion works",
+        "Delete all completed works",
+        "Animation plays on delete"
+      ],
+      "test_steps": [
+        "Test hover delete button display",
+        "Test single task deletion with confirm",
+        "Test cancel on confirmation",
+        "Test delete all completed tasks"
+      ]
+    },
+    {
+      "id": "task-41",
+      "title": "Test complete task filtering flow",
+      "feature": "Task Filtering",
+      "dependencies": ["task-27", "task-28", "task-29", "task-30", "task-31"],
+      "description": "Test filter tabs and task counts",
+      "acceptance_criteria": [
+        "All filter shows all tasks",
+        "Active filter shows only active",
+        "Completed filter shows only completed",
+        "Counts are accurate",
+        "Active tab is highlighted"
+      ],
+      "test_steps": [
+        "Create mix of active and completed tasks",
+        "Test each filter tab",
+        "Verify counts match actual numbers",
+        "Verify active tab highlighting"
+      ]
+    },
+    {
+      "id": "task-42",
+      "title": "Test complete data persistence flow",
+      "feature": "Data Persistence",
+      "dependencies": ["task-32", "task-33", "task-34", "task-35"],
+      "description": "Test that data persists across page refreshes and browser sessions",
+      "acceptance_criteria": [
+        "Tasks persist after page refresh",
+        "Tasks persist after browser close",
+        "All operations save to localStorage",
+        "Empty state handled on fresh load"
+      ],
+      "test_steps": [
+        "Add, complete, delete tasks",
+        "Refresh page and verify data",
+        "Close and reopen browser",
+        "Test with cleared localStorage"
+      ]
+    },
+    {
+      "id": "task-43",
+      "title": "Test responsive design across devices",
+      "feature": "Setup",
+      "dependencies": ["task-36", "task-37", "task-38", "task-39", "task-40", "task-41", "task-42"],
+      "description": "Test responsive design and functionality on mobile viewport sizes",
+      "acceptance_criteria": [
+        "Layout responsive on mobile",
+        "All features work on mobile",
+        "Touch interactions work",
+        "No horizontal scroll on mobile"
+      ],
+      "test_steps": [
+        "Resize browser to various widths",
+        "Test all features on mobile size",
+        "Verify touch targets are adequate",
+        "Check for horizontal scroll"
+      ]
+    }
+  ],
+  "execution_order": [
+    "task-1",
+    "task-2",
+    "task-4",
+    "task-6",
+    "task-12",
+    "task-27",
+    "task-3",
+    "task-5",
+    "task-7",
+    "task-14",
+    "task-13",
+    "task-8",
+    "task-9",
+    "task-10",
+    "task-28",
+    "task-29",
+    "task-15",
+    "task-11",
+    "task-16",
+    "task-17",
+    "task-18",
+    "task-19",
+    "task-20",
+    "task-30",
+    "task-31",
+    "task-21",
+    "task-22",
+    "task-32",
+    "task-23",
+    "task-24",
+    "task-25",
+    "task-26",
+    "task-33",
+    "task-34",
+    "task-35",
+    "task-36",
+    "task-37",
+    "task-38",
+    "task-39",
+    "task-40",
+    "task-41",
+    "task-42",
+    "task-43"
+  ],
+  "metadata": {
+    "total_tasks": 43,
+    "feature_count": 6
+  }
+}
